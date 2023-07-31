@@ -1,0 +1,22 @@
+Validator for e-mail id
+{[ checks for '@' and '.' present in mail id as they are present in normail mail id "example: ' yashj0304@gmail.com ' " ]}
+
+validator: (value) {
+                              final emailRegex = RegExp(
+                                r'^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$',
+                              );
+                              if (value!.isEmpty) {
+                                Get.snackbar(
+                                  'Error',
+                                  'Please enter your email address',
+                                );
+                                return '';
+                              } else if (!emailRegex.hasMatch(value)) {
+                                Get.snackbar(
+                                  'Error',
+                                  'Please enter a valid email address',
+                                );
+                                return '';
+                              }
+                              return null;
+                            },
